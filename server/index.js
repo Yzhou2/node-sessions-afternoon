@@ -5,6 +5,7 @@ var checkForSession = require('./middleware/checkForSession');
 var swagCtrl = require('./controllers/swag_controller');
 var authCtrl = require('./controllers/auth_controller');
 var cartCtrl = require('./controllers/cart_controller');
+var searchCtrl = require('./controllers/search_controller');
 
 var app = express();
 app.use(bodyParser.json());
@@ -27,6 +28,8 @@ app.get('/api/user', authCtrl.getUser);
 app.post('/api/cart', cartCtrl.add);
 app.post('/api/cart/checkout', cartCtrl.checkout);
 app.delete('/api/cart', cartCtrl.remove);
+
+app.get('/api/search', searchCtrl.search);
 
 
 
